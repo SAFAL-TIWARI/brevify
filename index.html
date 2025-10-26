@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brevify - Intelligent Text Summarizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Brevify</h1>
+            <p>Intelligent text summarization powered by Google Gemini</p>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="content-wrapper">
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>Input Text</h2>
+                <textarea id="inputText" placeholder="Paste your text here to summarize... (minimum 50 characters)"
+                    rows="15"></textarea>
+
+                <!-- Character Count -->
+                <div class="char-count">
+                    <span id="charCount">0</span> characters
+                </div>
+
+                <!-- Controls Section -->
+                <div class="controls">
+                    <!-- Summary Length Slider -->
+                    <div class="control-group">
+                        <label for="lengthSlider">Summary Length: <strong id="lengthLabel">Medium</strong></label>
+                        <input type="range" id="lengthSlider" min="0" max="2" value="1" step="1">
+                        <div class="slider-labels">
+                            <span>Short</span>
+                            <span>Medium</span>
+                            <span>Long</span>
+                        </div>
+                    </div>
+
+                    <!-- Summarization Modes -->
+                    <div class="control-group">
+                        <label>Summarization Mode:</label>
+                        <div class="mode-buttons">
+                            <button class="mode-btn active" data-mode="paragraph">
+                                📝 Paragraph
+                            </button>
+                            <button class="mode-btn" data-mode="bullets">
+                                📋 Bullet Points
+                            </button>
+                            <button class="mode-btn" data-mode="eli5">
+                                👶 ELI5
+                            </button>
+                            <button class="mode-btn" data-mode="questions">
+                                ❓ Key Questions
+                            </button>
+                            <button class="mode-btn" data-mode="seo">
+                                🔍 SEO Meta
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Summarize Button -->
+                    <button id="summarizeBtn" class="summarize-btn">
+                        <span class="btn-text">Summarize</span>
+                        <span class="loader" style="display: none;"></span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Output Section -->
+            <section class="output-section">
+                <h2>Summary Output</h2>
+                <div id="outputText" class="output-box">
+                    <p class="placeholder">Your AI-generated summary will appear here...</p>
+                </div>
+
+                <!-- Copy Button -->
+                <button id="copyBtn" class="copy-btn" style="display: none;">
+                    📋 Copy to Clipboard
+                </button>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Powered by Google Gemini API | Built by Safal Tiwari</p>
+        </footer>
+    </div>
+
+    <script src="/scripts.js"></script>
+</body>
+
+</html>
